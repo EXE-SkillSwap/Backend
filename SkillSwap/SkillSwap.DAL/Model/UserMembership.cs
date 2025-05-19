@@ -13,8 +13,8 @@ namespace SkillSwap.DAL.Model
         [Key]
         public Guid UserMembershipID { get; set; }
 
-        public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
+        public DateTime StartDate { get; set; } = DateTime.Now;
+        public DateTime EndDate { get; set; } = DateTime.Now;
 
         [ForeignKey("Membership")]
         public Guid MembershipID { get; set; }
@@ -22,8 +22,8 @@ namespace SkillSwap.DAL.Model
         [ForeignKey("UserAccount")]
         public Guid UserID { get; set; }
 
-        public MembershipSubscription Membership { get; set; }
-        public UserAccount UserAccount { get; set; }
+        public MembershipSubscription? Membership { get; set; }
+        public UserAccount? UserAccount { get; set; }
     }
 
 }

@@ -11,7 +11,7 @@ namespace SkillSwap.DAL.Model
     {
         [Key]
         public Guid InterestID { get; set; }
-        public string InterestName { get; set; }
+        public string InterestName { get; set; } = string.Empty;
     }
 
 }

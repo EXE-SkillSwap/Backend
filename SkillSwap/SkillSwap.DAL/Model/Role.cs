@@ -11,7 +11,7 @@ namespace SkillSwap.DAL.Model
     {
         [Key]
         public Guid RoleID { get; set; }
-        public string RoleName { get; set; }
+        public string? RoleName { get; set; }
     }
 
 }

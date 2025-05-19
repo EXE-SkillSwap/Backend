@@ -11,15 +11,17 @@ namespace SkillSwap.DAL.Model
     public class Conversation
     {
         [Key]
-        public Guid ConversationID { get; set; }
+        public Guid ConversationID { get; set; } = Guid.NewGuid();
 
         [ForeignKey("UserAccount")]
         public Guid UserID { get; set; }
 
-        public string ConversationName { get; set; }
-        public DateTime LastMessageAt { get; set; }
+        public string ConversationName { get; set; } = null!;
+        public bool IsGroup { get; set; }
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
 
-        public UserAccount UserAccount { get; set; }
+        public UserAccount? UserAccount { get; set; }
     }
 
 }

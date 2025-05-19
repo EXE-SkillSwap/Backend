@@ -11,10 +11,10 @@ namespace SkillSwap.DAL.Model
     {
         [Key]
         public Guid MaterialID { get; set; }
-        public string MaterialName { get; set; }
-        public string Quiz { get; set; }
+        public string MaterialName { get; set; } = null!;
+        public string? Quiz { get; set; }
         public DateTime CreatedDate { get; set; }
-        public string Video { get; set; }
+        public string? Video { get; set; }
     }
 
 }

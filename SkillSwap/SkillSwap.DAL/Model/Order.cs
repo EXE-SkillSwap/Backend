@@ -12,17 +12,12 @@ namespace SkillSwap.DAL.Model
     {
         [Key]
         public Guid OrderID { get; set; }
-
-        public double OrderPrice { get; set; }
-
+        public DateTime DateCheckOut { get; set; }
+        public double TotalPrice { get; set; }
         [ForeignKey("MembershipSubscription")]
         public Guid? MembershipID { get; set; }
-
-        [ForeignKey("Course")]
-        public Guid? CourseID { get; set; }
-
-        public MembershipSubscription MembershipSubscription { get; set; }
-        public Course Course { get; set; }
+        public MembershipSubscription? MembershipSubscription { get; set; }
+        public virtual ICollection<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
     }
 
 }

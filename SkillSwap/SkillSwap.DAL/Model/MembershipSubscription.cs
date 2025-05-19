@@ -12,16 +12,10 @@ namespace SkillSwap.DAL.Model
     {
         [Key]
         public Guid MembershipID { get; set; }
-
-        public string MembershipName { get; set; }
-        public string MembershipDetail { get; set; }
+        public string MembershipName { get; set; } = null!;
+        public string MembershipDetail { get; set; } = null!;
         public bool IsEIDocument { get; set; }
         public double Price { get; set; }
-
-        [ForeignKey("UserMembership")]
-        public Guid? UserMembershipID { get; set; }
-
-        public UserMembership UserMembership { get; set; }
     }
 
 }

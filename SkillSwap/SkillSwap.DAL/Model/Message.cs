@@ -6,6 +6,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SkillSwap.DAL.Enum;
 
 namespace SkillSwap.DAL.Model
 {
@@ -17,15 +18,15 @@ namespace SkillSwap.DAL.Model
         [ForeignKey("Sender")]
         public Guid SenderID { get; set; }
 
-        public string Content { get; set; }
-        public string Status { get; set; }
-        public DateTime CreateAt { get; set; }
+        public string Content { get; set; } = null!;
+        public MessageStatus Status { get; set; }
+        public DateTime SentAt { get; set; } = DateTime.UtcNow;
 
         [ForeignKey("Conversation")]
         public Guid ConversationID { get; set; }
 
-        public UserAccount Sender { get; set; }
-        public Conversation Conversation { get; set; }
+        public UserAccount? Sender { get; set; }
+        public Conversation? Conversation { get; set; }
     }
 
 }
