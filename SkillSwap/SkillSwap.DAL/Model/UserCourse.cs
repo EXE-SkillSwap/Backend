@@ -19,8 +19,8 @@ namespace SkillSwap.DAL.Model
         [ForeignKey("Course")]
         public Guid CourseID { get; set; }
 
-        public UserAccount UserAccount { get; set; }
-        public Course Course { get; set; }
+        public UserAccount? UserAccount { get; set; }
+        public Course? Course { get; set; }
     }
 
 }

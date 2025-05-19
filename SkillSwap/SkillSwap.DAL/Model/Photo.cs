@@ -16,10 +16,10 @@ namespace SkillSwap.DAL.Model
         [ForeignKey("UserAccount")]
         public Guid UserID { get; set; }
 
-        public string URL { get; set; }
+        public string URL { get; set; } = null!;
         public bool IsMain { get; set; }
 
-        public UserAccount UserAccount { get; set; }
+        public UserAccount? UserAccount { get; set; }
     }
 
 }

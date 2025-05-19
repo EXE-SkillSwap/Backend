@@ -12,6 +12,7 @@ namespace SkillSwap.DAL.Model
     {
         [Key]
         public Guid ConversationPartnersID { get; set; }
+        public DateTime JoinedAt { get; set; } = DateTime.UtcNow;
 
         [ForeignKey("UserAccount")]
         public Guid UserID { get; set; }
@@ -19,8 +20,8 @@ namespace SkillSwap.DAL.Model
         [ForeignKey("Conversation")]
         public Guid ConversationID { get; set; }
 
-        public UserAccount UserAccount { get; set; }
-        public Conversation Conversation { get; set; }
+        public UserAccount? UserAccount { get; set; }
+        public Conversation? Conversation { get; set; }
     }
 
 }

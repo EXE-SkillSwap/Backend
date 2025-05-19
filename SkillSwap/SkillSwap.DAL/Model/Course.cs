@@ -12,27 +12,14 @@ namespace SkillSwap.DAL.Model
     {
         [Key]
         public Guid CourseID { get; set; }
-        public string CourseName { get; set; }
-        public string CourseDetail { get; set; }
+        public string? CourseName { get; set; }
+        public string? CourseDetail { get; set; }
         public double CoursePrice { get; set; }
         public DateTime CreatedDate { get; set; }
 
         [ForeignKey("Material")]
-        public Guid? MaterialID { get; set; }
-
-        [ForeignKey("Review")]
-        public Guid? ReviewID { get; set; }
-
-        [ForeignKey("Photo")]
-        public Guid? PhotoID { get; set; }
-
-        [ForeignKey("Category")]
-        public Guid? CategoryID { get; set; }
-
-        public Material Material { get; set; }
-        public Review Review { get; set; }
-        public Photo Photo { get; set; }
-        public Category Category { get; set; }
+        public Guid MaterialID { get; set; }
+        public Material? Material { get; set; }
     }
 
 }

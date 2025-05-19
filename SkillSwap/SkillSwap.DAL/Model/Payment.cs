@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SkillSwap.DAL.Enum;
 
 namespace SkillSwap.DAL.Model
 {
@@ -12,19 +13,14 @@ namespace SkillSwap.DAL.Model
     {
         [Key]
         public Guid PaymentID { get; set; }
-
-        public double TotalPrice { get; set; }
-        public string Status { get; set; }
-        public string PaymentMethod { get; set; }
-
-        [ForeignKey("UserAccount")]
-        public Guid UserID { get; set; }
-
-        [ForeignKey("Order")]
-        public Guid OrderID { get; set; }
-
-        public UserAccount UserAccount { get; set; }
-        public Order Order { get; set; }
+        public PaymentType PaymentType { get; set; }
+        public Guid ReferenceId { get; set; } // ID dùng chung cho mua Cour hoặc memberShip
+        public decimal TotalPayment { get; set; }
+        public PaymentStatus Status { get; set; } = PaymentStatus.Unpaid;
+        public string PaymentMethod { get; set; } = "VNPay";
+        public Guid UserId { get; set; }
+        public virtual Order? Order { get; set; }
+        public virtual MembershipSubscription? MembershipSubscription { get; set; }
     }
 
 }
