@@ -11,6 +11,6 @@ namespace SkillSwap.Services.Contract
         Task<ResponseDTO> CreateConversation(Guid creatorId, string name, List<Guid> memberIds, bool isGroup);
         Task<ResponseDTO> GetUserConversations(Guid userId, int pageNumber, int pageSize);
         Task<ResponseDTO> DeleteConversation(Guid conversationId, Guid requesterId);
+
     }
 }
-// Hihi

@@ -23,6 +23,7 @@ builder.Services.AddScoped<IConversationPartnersService, ConversationPartnersSer
 builder.Services.AddScoped<IConversationService, ConversationService>();
 builder.Services.AddScoped<IMessageService, MessageService>();
 builder.Services.AddScoped<IPartnerShipService, PartnerShipService>();
+builder.Services.AddScoped<IUserAccountService, UserAccountService>();
 builder.Services.AddScoped<IHubService, HubService>();
 
 // Đăng ký SignalR
