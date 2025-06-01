@@ -16,7 +16,7 @@ namespace SkillSwap.DAL.Model
         public int Quantity { get; set; }
         [ForeignKey(nameof(CourseID))]
         public Guid CourseID { get; set; }
-        public Course Course { get; set; }
+        public Course? Course { get; set; }
         [ForeignKey(nameof(OrderId))]
         public Guid OrderId { get; set; }
 

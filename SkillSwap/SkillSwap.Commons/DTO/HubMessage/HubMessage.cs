@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SkillSwap.DAL.Contract
+namespace SkillSwap.Commons.DTO.HubMessage
 {
-    public interface ICourseRepository
+    public class HubMessage
     {
-
+        public const string LOAD_MESSAGE = "LOAD_MESSAGE";
     }
 }

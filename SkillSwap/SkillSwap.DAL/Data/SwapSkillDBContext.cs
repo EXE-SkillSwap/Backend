@@ -11,6 +11,7 @@ namespace SkillSwap.DAL.Data
     public class SwapSkillDBContext : DbContext
     {
         public SwapSkillDBContext() { }
+        public SwapSkillDBContext(DbContextOptions<SwapSkillDBContext> options) : base(options) { }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Conversation> Conversations { get; set; }
         public DbSet<ConversationPartners> Partners { get; set; }

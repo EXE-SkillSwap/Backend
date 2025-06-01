@@ -14,4 +14,8 @@
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.10.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SkillSwap.DAL\SkillSwap.DAL.csproj" />
+  </ItemGroup>
+
 </Project>

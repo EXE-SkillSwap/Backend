@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SkillSwap.DAL\SkillSwap.DAL.csproj" />
+    <ProjectReference Include="..\SkillSwap.Services\SkillSwap.Services.csproj" />
   </ItemGroup>
 
 </Project>
