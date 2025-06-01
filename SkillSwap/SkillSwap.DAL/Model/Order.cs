@@ -14,9 +14,6 @@ namespace SkillSwap.DAL.Model
         public Guid OrderID { get; set; }
         public DateTime DateCheckOut { get; set; }
         public double TotalPrice { get; set; }
-        [ForeignKey("MembershipSubscription")]
-        public Guid? MembershipID { get; set; }
-        public MembershipSubscription? MembershipSubscription { get; set; }
         public virtual ICollection<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
     }
 
