@@ -1,4 +1,9 @@
-﻿using System;
+﻿using SkillSwap.Commons.DTO.BusinessCode;
+using SkillSwap.Commons.DTO;
+using SkillSwap.DAL.Contract;
+using SkillSwap.DAL.Model;
+using SkillSwap.Services.Contract;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

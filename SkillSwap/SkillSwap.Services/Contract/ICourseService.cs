@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SkillSwap.Commons.DTO;
+using SkillSwap.DAL.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
