@@ -35,7 +35,7 @@ namespace SkillSwap.Services.Implement
                   issuer: _configuration["JwtSettings:Issuer"],
                   audience: _configuration["JwtSettings:Audience"],
                   claims: claims,
-                  expires: DateTime.Now.AddMinutes(double.Parse(_configuration["JwtSettings:AccessTokenExpirationMinutes"])),
+                  expires: DateTime.Now.AddMinutes(double.Parse(_configuration["JwtSettings:ExpiryInMinutes"])),
                   signingCredentials: creds
                 );
             var tokenSign = new JwtSecurityTokenHandler().WriteToken(token);
