@@ -25,6 +25,7 @@ builder.Services.AddScoped<IMessageService, MessageService>();
 builder.Services.AddScoped<IPartnerShipService, PartnerShipService>();
 builder.Services.AddScoped<IUserAccountService, UserAccountService>();
 builder.Services.AddScoped<IHubService, HubService>();
+builder.Services.AddScoped<IJwtService, JWTService>();
 
 // Đăng ký SignalR
 builder.Services.AddSignalR();

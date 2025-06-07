@@ -16,11 +16,16 @@ namespace SkillSwap.Services.Implement
     {
         private readonly IGenericRepository<UserAccount> _userRepository;
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IJwtService _jwtService;
 
-        public UserAccountService(IGenericRepository<UserAccount> userRepository, IUnitOfWork unitOfWork)
+        public UserAccountService(
+            IGenericRepository<UserAccount> userRepository,
+            IUnitOfWork unitOfWork,
+            IJwtService jwtService)
         {
             _userRepository = userRepository;
             _unitOfWork = unitOfWork;
+            _jwtService = jwtService;
         }
 
         public async Task<ResponseDTO> CreateUser(UserAccount user)
@@ -45,9 +50,18 @@ namespace SkillSwap.Services.Implement
                 await _userRepository.Insert(user);
                 await _unitOfWork.SaveChangeAsync();
 
+                // Generate JWT
+                var accessToken = _jwtService.GenerateAccessToken(user);
+                var refreshToken = _jwtService.GenerateRefreshToken();
+
                 dto.IsSucess = true;
                 dto.BusinessCode = BusinessCode.SIGN_UP_SUCCESSFULLY;
-                dto.Data = user;
+                dto.Data = new
+                {
+                    User = user,
+                    AccessToken = accessToken,
+                    RefreshToken = refreshToken
+                };
             }
             catch
             {
@@ -56,6 +70,7 @@ namespace SkillSwap.Services.Implement
             }
             return dto;
         }
+
 
         public async Task<ResponseDTO> GetUserById(Guid userId)
         {
@@ -196,9 +211,23 @@ namespace SkillSwap.Services.Implement
                     return dto;
                 }
 
+                string accessToken = _jwtService.GenerateAccessToken(user);
+                string refreshToken = _jwtService.GenerateRefreshToken();
+
                 dto.IsSucess = true;
                 dto.BusinessCode = BusinessCode.GET_DATA_SUCCESSFULLY;
-                dto.Data = user;
+                dto.Data = new
+                {
+                    AccessToken = accessToken,
+                    RefreshToken = refreshToken,
+                    UserInfo = new
+                    {
+                        user.UserID,
+                        user.FullName,
+                        user.Email,
+                        Role = user.Role?.RoleName
+                    }
+                };
             }
             catch
             {
