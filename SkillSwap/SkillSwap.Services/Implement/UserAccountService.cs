@@ -110,8 +110,7 @@ namespace SkillSwap.Services.Implement
                 isAscending: false,
                 includes: new Expression<Func<UserAccount, object>>[]
                 {
-                    u => u.Role,
-                    u => u.Interest
+                    u => u.Role
                 }
             );
 
@@ -147,8 +146,6 @@ namespace SkillSwap.Services.Implement
                 existing.DateOfBirth = user.DateOfBirth;
                 existing.PasswordHash = user.PasswordHash;
                 existing.RoleID = user.RoleID;
-                existing.InterestID = user.InterestID;
-                existing.PartnerAmount = user.PartnerAmount;
 
                 await _userRepository.Update(existing);
                 await _unitOfWork.SaveChangeAsync();
