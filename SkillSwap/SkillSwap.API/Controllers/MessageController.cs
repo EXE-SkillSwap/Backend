@@ -38,7 +38,7 @@ namespace SkillSwap.API.Controllers
         [HttpPut("update_status")]
         public async Task<ResponseDTO> UpdateMessageStatus(Guid messageId, int status)
         {
-            return await _messageService.UpdateMessageStatus(messageId, (SkillSwap.DAL.Enum.MessageStatus)status);
+            return await _messageService.UpdateMessageStatus(messageId, (MessageStatus)status);
         }
     }
 }
