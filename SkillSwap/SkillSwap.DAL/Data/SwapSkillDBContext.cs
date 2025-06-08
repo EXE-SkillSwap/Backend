@@ -16,7 +16,6 @@ namespace SkillSwap.DAL.Data
         public DbSet<Conversation> Conversations { get; set; }
         public DbSet<ConversationPartners> Partners { get; set; }
         public DbSet<Course> Courses { get; set; }
-        public DbSet<Interest> Interests { get; set; }
         public DbSet<Material> Materials { get; set; }
         public DbSet<MembershipSubscription> MembershipSubscriptions { get; set; }
         public DbSet<Message> Messages { get; set; }
@@ -33,8 +32,9 @@ namespace SkillSwap.DAL.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server=DESKTOP-0BFN572\\PIEDTEAM;database=SwapSkillDB;uid=sa;pwd=12345;TrustServerCertificate=True;MultipleActiveResultSets=True;");
+            optionsBuilder.UseSqlServer("Server=localhost;Database=SkillSwap;Trusted_Connection=True;TrustServerCertificate=True;MultipleActiveResultSets=true");
         }
 
+        // "server=DESKTOP-0BFN572\\PIEDTEAM;database=SwapSkillDB;uid=sa;pwd=12345;TrustServerCertificate=True;MultipleActiveResultSets=True;"
     }
 }

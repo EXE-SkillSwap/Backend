@@ -50,17 +50,11 @@ namespace SkillSwap.Services.Implement
                 await _userRepository.Insert(user);
                 await _unitOfWork.SaveChangeAsync();
 
-                // Generate JWT
-                var accessToken = _jwtService.GenerateAccessToken(user);
-                var refreshToken = _jwtService.GenerateRefreshToken();
-
                 dto.IsSucess = true;
                 dto.BusinessCode = BusinessCode.SIGN_UP_SUCCESSFULLY;
                 dto.Data = new
                 {
                     User = user,
-                    AccessToken = accessToken,
-                    RefreshToken = refreshToken
                 };
             }
             catch
@@ -110,8 +104,7 @@ namespace SkillSwap.Services.Implement
                 isAscending: false,
                 includes: new Expression<Func<UserAccount, object>>[]
                 {
-                    u => u.Role,
-                    u => u.Interest
+                    u => u.Role
                 }
             );
 
@@ -147,8 +140,6 @@ namespace SkillSwap.Services.Implement
                 existing.DateOfBirth = user.DateOfBirth;
                 existing.PasswordHash = user.PasswordHash;
                 existing.RoleID = user.RoleID;
-                existing.InterestID = user.InterestID;
-                existing.PartnerAmount = user.PartnerAmount;
 
                 await _userRepository.Update(existing);
                 await _unitOfWork.SaveChangeAsync();
@@ -195,7 +186,10 @@ namespace SkillSwap.Services.Implement
             var dto = new ResponseDTO();
             try
             {
-                var user = await _userRepository.GetFirstByExpression(u => u.Email.ToLower() == email.ToLower());
+                var user = await _userRepository.GetFirstByExpression(
+                u => u.Email.ToLower() == email.ToLower(),
+                u => u.Role
+            );
 
                 if (user == null)
                 {

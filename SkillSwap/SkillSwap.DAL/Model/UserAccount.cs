@@ -22,12 +22,7 @@ namespace SkillSwap.DAL.Model
         public DateTime DateOfBirth { get; set; } = DateTime.Now;
         public string PasswordHash { get; set; } = null!;
         public string Address { get; set; } = null!;
-
-        [ForeignKey("Interest")]
-        public Guid? InterestID { get; set; }
-        public int PartnerAmount { get; set; }
         public Role? Role { get; set; }
-        public Interest? Interest { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     }
 
