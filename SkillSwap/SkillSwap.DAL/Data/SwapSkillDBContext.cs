@@ -32,7 +32,7 @@ namespace SkillSwap.DAL.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server=(local);database=SwapSkillDB;uid=sa;pwd=123456;TrustServerCertificate=True;MultipleActiveResultSets=True;");
+            optionsBuilder.UseSqlServer("Server=localhost;Database=SkillSwap;Trusted_Connection=True;TrustServerCertificate=True;MultipleActiveResultSets=true");
         }
 
         // "server=DESKTOP-0BFN572\\PIEDTEAM;database=SwapSkillDB;uid=sa;pwd=12345;TrustServerCertificate=True;MultipleActiveResultSets=True;"
